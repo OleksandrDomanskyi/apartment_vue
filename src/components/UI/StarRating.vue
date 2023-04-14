@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'StarRating',
+  name: 'star-rating',
   props: {
     rating: {
       type: Number,

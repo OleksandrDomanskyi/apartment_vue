@@ -7,7 +7,7 @@
           {{ description }}
         </p>
         <div class="apartments-item__rating">
-          <StarRating :rating="rating" />
+          <star-rating :rating="rating" />
         </div>
         <div class="apartments-item__price">UAH {{ price }}</div>
       </div>
@@ -16,13 +16,9 @@
 </template>
 
 <script>
-import StarRating from '@/components/UI/StarRating.vue';
-
 export default {
   name: 'ApartmentsItem',
-  components: {
-    StarRating,
-  },
+  components: {},
   props: {
     description: {
       type: String,
@@ -41,8 +37,7 @@ export default {
       default: '',
     },
   },
-  methods: {
-  }
+  methods: {},
 };
 </script>
 

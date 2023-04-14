@@ -10,13 +10,9 @@
 </template>
 
 <script>
-import MyContainer from '@/components/shared/MyContainer.vue';
-
 export default {
   name: 'ApartmentsList',
-  components: {
-    MyContainer,
-  },
+  components: {},
   props: {
     items: {
       type: Array,

@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <MyInput v-model="text"/>
+    <my-select v-model="selectedOption" :options="options" />
+    <my-input
+      v-model="inputData.price"
+      name="price"
+      type="Number"
+      placeholder="Цена, от"
+    ></my-input>
     <ApartmentsList :items="apartments">
       <template v-slot:title>New Title</template>
       <template v-slot:apartment="{ apartment }">
@@ -19,19 +25,25 @@
 <script>
 import ApartmentsList from './components/apartment/ApartmentList.vue';
 import ApartmentsItem from './components/apartment/ApartmentsItem.vue';
-import MyInput from './components/UI/MyInput.vue';
 import apartments from './components/apartment/apartments';
 
 export default {
-  name: 'App',
   components: {
     ApartmentsList,
     ApartmentsItem,
-    MyInput,
   },
   data() {
     return {
       apartments,
+      selectedOption: '',
+      options: [
+        { value: '5000', label: '5000' },
+        { value: '7000', label: '7000' },
+        { value: '10000', label: '10000' },
+      ],
+      inputData: {
+        price: '',
+      },
     };
   },
 };

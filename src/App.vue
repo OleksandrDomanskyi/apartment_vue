@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <MyInput v-model="text"/>
     <ApartmentsList :items="apartments">
       <template v-slot:title>New Title</template>
       <template v-slot:apartment="{ apartment }">
@@ -18,6 +19,7 @@
 <script>
 import ApartmentsList from './components/apartment/ApartmentList.vue';
 import ApartmentsItem from './components/apartment/ApartmentsItem.vue';
+import MyInput from './components/UI/MyInput.vue';
 import apartments from './components/apartment/apartments';
 
 export default {
@@ -25,6 +27,7 @@ export default {
   components: {
     ApartmentsList,
     ApartmentsItem,
+    MyInput,
   },
   data() {
     return {

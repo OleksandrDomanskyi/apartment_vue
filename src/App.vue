@@ -37,9 +37,9 @@ export default {
       apartments,
       selectedOption: '',
       options: [
-        { value: '5000', label: '5000' },
-        { value: '7000', label: '7000' },
-        { value: '10000', label: '10000' },
+        { value: 'Kyiv', label: 'Kyiv' },
+        { value: 'Odesa', label: 'Odesa' },
+        { value: 'Kharkiv', label: 'Kharkiv' },
       ],
       inputData: {
         price: '',

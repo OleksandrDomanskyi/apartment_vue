@@ -1,17 +1,13 @@
 <template>
   <div id="app">
-    <my-select v-model="selectedOption" :options="options" />
-    <my-input
-      v-model="inputData.price"
-      name="price"
-      type="Number"
-      placeholder="Цена, от"
-    ></my-input>
-    <ApartmentsList :items="apartments">
-      <template v-slot:title>New Title</template>
+    <my-container>
+      <ApartmentFilterForm class="apartments-filter" @submit="logger" />
+    </my-container>
+    <ApartmentsList :apartments="apartments">
       <template v-slot:apartment="{ apartment }">
         <ApartmentsItem
           :key="apartment.id"
+          :id="apartment.id"
           :description="apartment.descr"
           :price="apartment.price"
           :rating="apartment.rating"
@@ -26,36 +22,35 @@
 import ApartmentsList from './components/apartment/ApartmentList.vue';
 import ApartmentsItem from './components/apartment/ApartmentsItem.vue';
 import apartments from './components/apartment/apartments';
+import ApartmentFilterForm from './components/apartment/ApartmentFilterForm.vue';
 
 export default {
   components: {
     ApartmentsList,
     ApartmentsItem,
+    ApartmentFilterForm,
   },
   data() {
     return {
       apartments,
-      selectedOption: '',
-      options: [
-        { value: 'Kyiv', label: 'Kyiv' },
-        { value: 'Odesa', label: 'Odesa' },
-        { value: 'Kharkiv', label: 'Kharkiv' },
-      ],
-      inputData: {
-        price: '',
-      },
     };
+  },
+  methods: {
+    logger(value) {
+      console.log(value, 'form value');
+    },
   },
 };
 </script>
 
 <style>
 #app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 </style>

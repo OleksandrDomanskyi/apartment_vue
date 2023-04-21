@@ -2,8 +2,8 @@
   <my-container>
     <slot name="title"></slot>
     <div class="apartments-list">
-      <template v-for="apartment in items">
-        <slot name="apartment" v-bind:apartment="apartment"></slot>
+      <template v-for="apartment in apartments" :key="apartment.id">
+        <slot name="apartment" :apartment="apartment"></slot>
       </template>
     </div>
   </my-container>
@@ -14,7 +14,7 @@ export default {
   name: 'ApartmentsList',
   components: {},
   props: {
-    items: {
+    apartments: {
       type: Array,
       default: () => [],
     },

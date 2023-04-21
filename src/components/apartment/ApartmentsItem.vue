@@ -20,6 +20,10 @@ export default {
   name: 'ApartmentsItem',
   components: {},
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
       default: '',
@@ -37,7 +41,6 @@ export default {
       default: '',
     },
   },
-  methods: {},
 };
 </script>
 

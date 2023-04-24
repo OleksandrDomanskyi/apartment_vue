@@ -13,7 +13,22 @@ export default {
     return {
       city: '',
       price: '',
-      cities: [
+      // cities: [
+      //   { value: '', label: 'Город', selected: true },
+      //   { value: 'Kyiv', label: 'Kyiv' },
+      //   { value: 'Odesa', label: 'Odesa' },
+      //   { value: 'Kharkiv', label: 'Kharkiv' },
+      //   { value: 'Dnipro', label: 'Dnipro' },
+      //   { value: 'Poltava', label: 'Poltava' },
+      //   { value: 'Mariupol', label: 'Mariupol' },
+      //   { value: 'Kherson', label: 'Kherson' },
+      //   { value: 'Lviv', label: 'Lviv' },
+      // ],
+    };
+  },
+  computed: {
+    cities() {
+      return [
         { value: '', label: 'Город', selected: true },
         { value: 'Kyiv', label: 'Kyiv' },
         { value: 'Odesa', label: 'Odesa' },
@@ -23,10 +38,9 @@ export default {
         { value: 'Mariupol', label: 'Mariupol' },
         { value: 'Kherson', label: 'Kherson' },
         { value: 'Lviv', label: 'Lviv' },
-      ],
-    };
+      ];
+    },
   },
-  computed: {},
   methods: {
     handleSubmit() {
       this.$emit('submit', {

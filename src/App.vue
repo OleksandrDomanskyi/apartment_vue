@@ -1,44 +1,21 @@
 <template>
   <div id="app">
-    <my-container>
-      <ApartmentFilterForm class="apartments-filter" @submit="logger" />
-    </my-container>
-    <ApartmentsList :apartments="apartments">
-      <template v-slot:apartment="{ apartment }">
-        <ApartmentsItem
-          :key="apartment.id"
-          :id="apartment.id"
-          :description="apartment.descr"
-          :price="apartment.price"
-          :rating="apartment.rating"
-          :imgSrc="apartment.imgUrl"
-        />
-      </template>
-    </ApartmentsList>
+    <div class="content">
+      <AppHeader />
+      <router-view></router-view>
+    </div>
+    <AppFooter />
   </div>
 </template>
 
 <script>
-import ApartmentsList from './components/apartment/ApartmentList.vue';
-import ApartmentsItem from './components/apartment/ApartmentsItem.vue';
-import apartments from './components/apartment/apartments';
-import ApartmentFilterForm from './components/apartment/ApartmentFilterForm.vue';
+import AppFooter from '@/components/Footer.vue';
+import AppHeader from '@/components/Header.vue';
 
 export default {
   components: {
-    ApartmentsList,
-    ApartmentsItem,
-    ApartmentFilterForm,
-  },
-  data() {
-    return {
-      apartments,
-    };
-  },
-  methods: {
-    logger(value) {
-      console.log(value, 'form value');
-    },
+    AppFooter,
+    AppHeader,
   },
 };
 </script>
@@ -51,6 +28,10 @@ export default {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin-top: 60px;
+}
+
+.content {
+  flex-grow: 1;
+  padding-top: 120px;
 }
 </style>

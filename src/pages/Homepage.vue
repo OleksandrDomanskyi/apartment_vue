@@ -4,7 +4,7 @@
       <ApartmentsFilterForm class="apartments-filter" @submit="filter" />
     </my-container>
     <my-container>
-      <ApartmentsList :apartments="filteredApartments">
+      <ApartmentsList :apartments="apartments">
         <template v-slot:apartment="{ apartment }">
           <ApartmentsItem
             :key="apartment.id"
@@ -23,8 +23,9 @@
 <script>
 import ApartmentsList from '@/components/apartment/ApartmentList.vue';
 import ApartmentsItem from '@/components/apartment/ApartmentsItem.vue';
-import apartments from '@/components/apartment/apartments';
 import ApartmentsFilterForm from '@/components/apartment/ApartmentsFilterForm.vue';
+import apartments from '@/components/apartment/apartments';
+import { getApartmentsList } from '@/services/apartments.service.js';
 
 export default {
   name: 'homepage',
@@ -47,6 +48,15 @@ export default {
       return this.filterByCityName(this.filterByPrice(this.apartments));
     },
   },
+  // async mounted() {
+  //   try {
+  //     const { data } = await getApartmentsList();
+  //     this.apartments = data;
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // },
   methods: {
     logger(value) {
       console.log(value, 'form value');
